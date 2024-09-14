@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在线教育网站</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" />
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f9;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004d99;
+      color: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1em;
+    }
+    .navbar .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner */
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('https://via.placeholder.com/1200x400?text=在线教育平台') center/cover no-repeat;
+      color: white;
+      height: 400px;
+      position: relative;
+      border-bottom: 5px solid #004d99;
+    }
+    .banner-content {
+      text-align: center;
+      padding: 20px;
+    }
+    .banner h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .banner p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* 主内容区 */
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      margin: -80px auto 30px;
+      max-width: 1200px;
+      padding: 0 15px;
+      z-index: 1;
+      position: relative;
+    }
+    .history,
+    .calendar {
+      width: 48%;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .history h2,
+    .calendar h2 {
+      margin-top: 0;
+      font-size: 1.8em;
+      border-bottom: 2px solid #004d99;
+      padding-bottom: 10px;
+    }
+    .history ul,
+    .calendar p {
+      font-size: 1em;
+      color: #333;
+    }
+    .calendar-container {
+      height: 500px;
+    }
+
+    /* 推荐课程部分 */
+    .recommended-courses {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 15px;
+    }
+    .course-card {
+      background-color: #ffffff;
+      width: calc(25% - 20px);
+      margin: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .course-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .course-card h3 {
+      margin: 10px 0;
+      font-size: 1.5em;
+      color: #004d99;
+    }
+    .course-card p {
+      font-size: 1em;
+      color: #666;
+    }
+    .course-card button {
+      background-color: #004d99;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    .course-card button:hover {
+      background-color: #003366;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <div class="navbar">
+    <div class="logo">教育网站</div>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">课程</a>
+      <a href="#">关于我们</a>
+      <a href="#">联系</a>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-content">
+      <h1>欢迎来到我们的在线教育平台！</h1>
+      <p>提升你的技能，开始学习吧！</p>
+    </div>
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="main-content">
+    <div class="history">
+      <h2>学习历史</h2>
+      <ul>
+        <li>已完成课程: JavaScript 初级教程</li>
+        <li>正在进行课程: React 高级开发</li>
+      </ul>
+    </div>
+    <div class="calendar">
+      <h2>学习日历</h2>
+      <div class="calendar-container" id="calendar"></div>
+    </div>
+  </div>
+
+  <!-- 推荐课程卡片 -->
+  <div class="recommended-courses">
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80" alt="Web开发基础">
+      <h3>Web开发基础</h3>
+      <p>从头开始学习 HTML、CSS 和 JavaScript。</p>
+      <button>开始学习</button>
+    </div>
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=React%E6%9E%81%E5%BA%A6%E5%BC%80%E5%8F%91" alt="前端框架 React">
+      <h3>前端框架 React</h3>
+      <p>深入学习 React 和现代前端开发。</p>
+      <button>开始学习</button>
+    </div>
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=Node.js%E5%90%91%E5%90%91" alt="后端开发 Node.js">
+      <h3>后端开发 Node.js</h3>
+      <p>掌握 Node.js 和构建强大的后端服务。</p>
+      <button>开始学习</button>
+    </div>
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96" alt="数据分析与可视化">
+      <h3>数据分析与可视化</h3>
+      <p>学习数据分析和使用工具进行数据可视化。</p>
+      <button>开始学习</button>
+    </div>
+  </div>
+
+  <!-- 引入 FullCalendar 和脚本 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          { title: 'React 项目演练', start: '2024-09-01' },
+          { title: 'Node.js 入门', start: '2024-09-03' },
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+
+</body>
+</html>
