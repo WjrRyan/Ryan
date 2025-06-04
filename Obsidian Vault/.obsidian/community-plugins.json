@@ -2,5 +2,7 @@
   "dataview",
   "obsidian-mind-map",
   "obsidian-linter",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "obsidian-excalidraw-plugin",
+  "obsidian-kanban"
 ]
